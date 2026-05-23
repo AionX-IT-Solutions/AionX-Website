@@ -293,7 +293,7 @@ export const gallery: GalleryItem[] = [
   },
   {
     id: 'founder',
-    src: '/images/gallery/founder.png',
+    src: '/images/gallery/founder.jpg',
     title: 'Founder/Lead developer',
     caption:
       'Tristan James B. Adolfo — full-stack mobile & web, fintech, and LGU systems architect.',
