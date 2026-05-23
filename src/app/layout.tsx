@@ -15,23 +15,97 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const siteUrl = 'https://aionxph.com';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+
   title: {
-    default: siteConfig.name,
-    template: `%s · ${siteConfig.name}`,
+    default: 'AionX IT Solutions',
+    template: `%s | AionX IT Solutions`,
   },
-  description: siteConfig.description,
+
+  description:
+    'AionX IT Solutions is a Philippine-based software company specializing in web development, mobile apps, custom systems, automation, and digital solutions.',
+
   keywords: [
-    'IT solutions Philippines',
-    'web development',
+    'AionX IT Solutions',
+    'IT company Philippines',
+    'web development Philippines',
     'mobile app development',
-    'custom software',
-    'AionX',
+    'custom software development',
+    'Next.js development',
+    'React development',
+    'business automation',
+    'POS system Philippines',
+    'software company Quezon City',
+    'SEO services Philippines',
+    'digital solutions',
   ],
+
+  authors: [
+    {
+      name: 'AionX IT Solutions',
+      url: siteUrl,
+    },
+  ],
+
+  creator: 'AionX IT Solutions',
+  publisher: 'AionX IT Solutions',
+
+  applicationName: 'AionX IT Solutions',
+
+  category: 'technology',
+
+  alternates: {
+    canonical: '/',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
   openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
     type: 'website',
+    locale: 'en_PH',
+    url: siteUrl,
+    siteName: 'AionX IT Solutions',
+    title: 'AionX IT Solutions',
+    description:
+      'Professional web, mobile, and custom software development services in the Philippines.',
+
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AionX IT Solutions',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AionX IT Solutions',
+    description:
+      'Professional web, mobile, and custom software development services in the Philippines.',
+    images: ['/og-image.png'],
+  },
+
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 };
 
@@ -47,7 +121,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en-PH" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <SmoothScroll>{children}</SmoothScroll>
         <ScrollToTopFab />
