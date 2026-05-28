@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import ScrollToTopFab from '@/components/scroll-to-top-fab';
+import SocialFab from '@/components/social-fab';
 import { siteConfig } from '@/lib/data';
+import Script from 'next/script';
 import './globals.css';
 
 const geistSans = Geist({
@@ -115,6 +117,23 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteConfig.name,
+  url: siteUrl,
+  logo: `${siteUrl}/og-image.png`,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Vigan City',
+    addressRegion: 'Ilocos Sur',
+    addressCountry: 'PH',
+  },
+  sameAs: [siteConfig.socials.linkedin, siteConfig.socials.facebook, siteConfig.socials.youtube],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -123,7 +142,13 @@ export default function RootLayout({
   return (
     <html lang="en-PH" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+        <Script
+          id="org-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <SmoothScroll>{children}</SmoothScroll>
+        <SocialFab />
         <ScrollToTopFab />
       </body>
     </html>

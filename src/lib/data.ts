@@ -37,6 +37,11 @@ export const siteConfig = {
     description:
       'Registered for government procurement — qualified to bid and deliver IT solutions for LGUs and national agencies.',
   },
+  socials: {
+    linkedin: 'https://www.linkedin.com/in/tristan-james-adolfo-a39a51303',
+    facebook: 'https://www.facebook.com/4ionX',
+    youtube: 'https://www.youtube.com/@AionX-PH',
+  },
 };
 
 export type Service = {
